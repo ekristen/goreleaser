@@ -175,6 +175,11 @@ func TestFuncMap(t *testing.T) {
 			Expected: "1.24",
 		},
 		{
+			Template: `{{ replaceN "v1.24-10-g1234567" "-" "+" 1 }}`,
+			Name:     "replace",
+			Expected: "v1.24+10-g1234567",
+		},
+		{
 			Template: `{{ if index .Env "SOME_ENV"  }}{{ .Env.SOME_ENV }}{{ else }}default value{{ end }}`,
 			Name:     "default value",
 			Expected: "default value",

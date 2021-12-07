@@ -171,7 +171,8 @@ func (t *Template) Apply(s string) (string, error) {
 	tmpl, err := template.New("tmpl").
 		Option("missingkey=error").
 		Funcs(template.FuncMap{
-			"replace": strings.ReplaceAll,
+			"replace":  strings.ReplaceAll,
+			"replaceN": strings.Replace,
 			"time": func(s string) string {
 				return time.Now().UTC().Format(s)
 			},
